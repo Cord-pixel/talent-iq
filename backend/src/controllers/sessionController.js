@@ -5,6 +5,7 @@ export async function createSession(req, res) {
   try {
     console.log("REQ.USER:", req.user);
     console.log("REQ.AUTH:", req.auth?.());
+
     const { problem, difficulty } = req.body;
     const userId = req.user._id;
     const clerkId = req.user.clerkId;
