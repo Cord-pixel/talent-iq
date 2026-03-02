@@ -5,4 +5,9 @@ const axiosInstance = axios.create({
   withCredentials: true, // by adding this field browser will send the cookies to server automatically, on every single req
 });
 
+axiosInstance.interceptors.request.use((config) => {
+  console.log("AXIOS REQUEST:", config.baseURL + config.url);
+  return config;
+});
+
 export default axiosInstance;
