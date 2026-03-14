@@ -3,11 +3,14 @@ import express from "express";
 
 const router = express.Router();
 
+const PISTON_URL =
+  "https://fantastic-space-rotary-phone-4jw56grr79jv3q6vp-3000.app.github.dev";
+
 router.post("/execute", async (req, res) => {
   try {
     const { language, version, files } = req.body;
 
-    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
+    const response = await fetch(`${PISTON_URL}/api/v2/execute`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +21,7 @@ router.post("/execute", async (req, res) => {
     const data = await response.json();
     res.json(data);
   } catch (err) {
-    console.error("Piston error:", err.message);
+    console.error("Execution error:", err.message);
     res.status(500).json({ error: "Code execution failed" });
   }
 });
