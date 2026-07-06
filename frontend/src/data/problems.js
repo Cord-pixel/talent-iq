@@ -65,11 +65,94 @@ class Solution {
         System.out.println(Arrays.toString(twoSum(new int[]{3, 3}, 6))); // Expected: [0, 1]
     }
 }`,
+      cpp: `#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+    // Write your solution here
+
+    return {};
+}
+
+int main() {
+    vector<int> result;
+
+    result = twoSum(vector<int>{2, 7, 11, 15}, 9);
+    cout << "[" << result[0] << ", " << result[1] << "]" << endl;
+
+    result = twoSum(vector<int>{3, 2, 4}, 6);
+    cout << "[" << result[0] << ", " << result[1] << "]" << endl;
+
+    result = twoSum(vector<int>{3, 3}, 6);
+    cout << "[" << result[0] << ", " << result[1] << "]" << endl;
+
+    return 0;
+}`,
+
+      c: `#include <stdio.h>
+#include <stdlib.h>
+
+int* twoSum(int* nums, int numsSize, int target) {
+    // Write your solution here
+
+    return NULL;
+}
+
+int main() {
+    int nums1[] = {2, 7, 11, 15};
+    int nums2[] = {3, 2, 4};
+    int nums3[] = {3, 3};
+
+    printf("Implement twoSum and print the results.\\n");
+
+    return 0;
+}`,
+
+      csharp: `using System;
+
+class Solution
+{
+    static int[] TwoSum(int[] nums, int target)
+    {
+        // Write your solution here
+
+        return Array.Empty<int>();
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("[" + string.Join(", ", TwoSum(new int[] {2, 7, 11, 15}, 9)) + "]");
+        Console.WriteLine("[" + string.Join(", ", TwoSum(new int[] {3, 2, 4}, 6)) + "]");
+        Console.WriteLine("[" + string.Join(", ", TwoSum(new int[] {3, 3}, 6)) + "]");
+    }
+}`,
+
+      go: `package main
+
+import "fmt"
+
+func twoSum(nums []int, target int) []int {
+    // Write your solution here
+
+    return []int{}
+}
+
+func main() {
+    fmt.Println(twoSum([]int{2, 7, 11, 15}, 9))
+    fmt.Println(twoSum([]int{3, 2, 4}, 6))
+    fmt.Println(twoSum([]int{3, 3}, 6))
+}`,
     },
     expectedOutput: {
       javascript: "[0,1]\n[1,2]\n[0,1]",
       python: "[0, 1]\n[1, 2]\n[0, 1]",
       java: "[0, 1]\n[1, 2]\n[0, 1]",
+      cpp: "[0, 1]\n[1, 2]\n[0, 1]",
+      c: "[0, 1]\n[1, 2]\n[0, 1]",
+      csharp: "[0, 1]\n[1, 2]\n[0, 1]",
+      go: "[0 1]\n[1 2]\n[0 1]",
     },
   },
 
@@ -80,7 +163,9 @@ class Solution {
     category: "String • Two Pointers",
     description: {
       text: "Write a function that reverses a string. The input string is given as an array of characters s.",
-      notes: ["You must do this by modifying the input array in-place with O(1) extra memory."],
+      notes: [
+        "You must do this by modifying the input array in-place with O(1) extra memory.",
+      ],
     },
     examples: [
       {
@@ -137,11 +222,116 @@ class Solution {
         System.out.println(Arrays.toString(test2)); // Expected: [h, a, n, n, a, H]
     }
 }`,
+      cpp: `#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void reverseString(vector<char>& s) {
+    // Write your solution here
+
+}
+
+int main() {
+    vector<char> test1 = {'h','e','l','l','o'};
+    reverseString(test1);
+    cout << "[";
+    for (size_t i = 0; i < test1.size(); i++) {
+        cout << test1[i];
+        if (i < test1.size() - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+
+    vector<char> test2 = {'H','a','n','n','a','h'};
+    reverseString(test2);
+    cout << "[";
+    for (size_t i = 0; i < test2.size(); i++) {
+        cout << test2[i];
+        if (i < test2.size() - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+
+    return 0;
+}`,
+
+      c: `#include <stdio.h>
+#include <string.h>
+
+void reverseString(char s[], int length) {
+    // Write your solution here
+
+}
+
+void printArray(char s[], int length) {
+    printf("[");
+    for (int i = 0; i < length; i++) {
+        printf("%c", s[i]);
+        if (i < length - 1) printf(", ");
+    }
+    printf("]\\n");
+}
+
+int main() {
+    char test1[] = {'h','e','l','l','o'};
+    reverseString(test1, 5);
+    printArray(test1, 5);
+
+    char test2[] = {'H','a','n','n','a','h'};
+    reverseString(test2, 6);
+    printArray(test2, 6);
+
+    return 0;
+}`,
+
+      csharp: `using System;
+
+class Solution
+{
+    static void ReverseString(char[] s)
+    {
+        // Write your solution here
+
+    }
+
+    static void Main()
+    {
+        char[] test1 = {'h','e','l','l','o'};
+        ReverseString(test1);
+        Console.WriteLine("[" + string.Join(", ", test1) + "]");
+
+        char[] test2 = {'H','a','n','n','a','h'};
+        ReverseString(test2);
+        Console.WriteLine("[" + string.Join(", ", test2) + "]");
+    }
+}`,
+
+      go: `package main
+
+import "fmt"
+
+func reverseString(s []rune) {
+    // Write your solution here
+
+}
+
+func main() {
+    test1 := []rune{'h','e','l','l','o'}
+    reverseString(test1)
+    fmt.Printf("[%c, %c, %c, %c, %c]\\n", test1[0], test1[1], test1[2], test1[3], test1[4])
+
+    test2 := []rune{'H','a','n','n','a','h'}
+    reverseString(test2)
+    fmt.Printf("[%c, %c, %c, %c, %c, %c]\\n", test2[0], test2[1], test2[2], test2[3], test2[4], test2[5])
+}`,
     },
     expectedOutput: {
       javascript: '["o","l","l","e","h"]\n["h","a","n","n","a","H"]',
       python: "['o', 'l', 'l', 'e', 'h']\n['h', 'a', 'n', 'n', 'a', 'H']",
       java: "[o, l, l, e, h]\n[h, a, n, n, a, H]",
+      cpp: "[o, l, l, e, h]\n[h, a, n, n, a, H]",
+      c: "[o, l, l, e, h]\n[h, a, n, n, a, H]",
+      csharp: "[o, l, l, e, h]\n[h, a, n, n, a, H]",
+      go: "[o, l, l, e, h]\n[h, a, n, n, a, H]",
     },
   },
 
@@ -152,7 +342,9 @@ class Solution {
     category: "String • Two Pointers",
     description: {
       text: "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.",
-      notes: ["Given a string s, return true if it is a palindrome, or false otherwise."],
+      notes: [
+        "Given a string s, return true if it is a palindrome, or false otherwise.",
+      ],
     },
     examples: [
       {
@@ -172,7 +364,10 @@ class Solution {
           's is an empty string "" after removing non-alphanumeric characters. Since an empty string reads the same forward and backward, it is a palindrome.',
       },
     ],
-    constraints: ["1 ≤ s.length ≤ 2 * 10⁵", "s consists only of printable ASCII characters"],
+    constraints: [
+      "1 ≤ s.length ≤ 2 * 10⁵",
+      "s consists only of printable ASCII characters",
+    ],
     starterCode: {
       javascript: `function isPalindrome(s) {
   // Write your solution here
@@ -204,11 +399,85 @@ print(isPalindrome(" "))  # Expected: True`,
         System.out.println(isPalindrome(" ")); // Expected: true
     }
 }`,
+      cpp: `#include <iostream>
+#include <string>
+using namespace std;
+
+bool isPalindrome(string s) {
+    // Write your solution here
+
+    return false;
+}
+
+int main() {
+    cout << boolalpha;
+    cout << isPalindrome("A man, a plan, a canal: Panama") << endl; // Expected: true
+    cout << isPalindrome("race a car") << endl; // Expected: false
+    cout << isPalindrome(" ") << endl; // Expected: true
+
+    return 0;
+}`,
+
+      c: `#include <stdio.h>
+#include <stdbool.h>
+
+bool isPalindrome(char s[]) {
+    // Write your solution here
+
+    return false;
+}
+
+int main() {
+    printf("%s\\n", isPalindrome("A man, a plan, a canal: Panama") ? "true" : "false");
+    printf("%s\\n", isPalindrome("race a car") ? "true" : "false");
+    printf("%s\\n", isPalindrome(" ") ? "true" : "false");
+
+    return 0;
+}`,
+
+      csharp: `using System;
+
+class Solution
+{
+    static bool IsPalindrome(string s)
+    {
+        // Write your solution here
+
+        return false;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(IsPalindrome("A man, a plan, a canal: Panama")); // Expected: True
+        Console.WriteLine(IsPalindrome("race a car")); // Expected: False
+        Console.WriteLine(IsPalindrome(" ")); // Expected: True
+    }
+}`,
+
+      go: `package main
+
+import "fmt"
+
+func isPalindrome(s string) bool {
+    // Write your solution here
+
+    return false
+}
+
+func main() {
+    fmt.Println(isPalindrome("A man, a plan, a canal: Panama")) // Expected: true
+    fmt.Println(isPalindrome("race a car")) // Expected: false
+    fmt.Println(isPalindrome(" ")) // Expected: true
+}`,
     },
     expectedOutput: {
       javascript: "true\nfalse\ntrue",
       python: "True\nFalse\nTrue",
       java: "true\nfalse\ntrue",
+      cpp: "true\nfalse\ntrue",
+      c: "true\nfalse\ntrue",
+      csharp: "True\nFalse\nTrue",
+      go: "true\nfalse\ntrue",
     },
   },
 
@@ -270,11 +539,87 @@ print(maxSubArray([5,4,-1,7,8]))  # Expected: 23`,
         System.out.println(maxSubArray(new int[]{5,4,-1,7,8})); // Expected: 23
     }
 }`,
+      cpp: `#include <iostream>
+#include <vector>
+using namespace std;
+
+int maxSubArray(vector<int>& nums) {
+    // Write your solution here
+
+    return 0;
+}
+
+int main() {
+    cout << maxSubArray(vector<int>{-2,1,-3,4,-1,2,1,-5,4}) << endl; // Expected: 6
+    cout << maxSubArray(vector<int>{1}) << endl; // Expected: 1
+    cout << maxSubArray(vector<int>{5,4,-1,7,8}) << endl; // Expected: 23
+
+    return 0;
+}`,
+
+      c: `#include <stdio.h>
+
+int maxSubArray(int nums[], int size) {
+    // Write your solution here
+
+    return 0;
+}
+
+int main() {
+    int nums1[] = {-2,1,-3,4,-1,2,1,-5,4};
+    int nums2[] = {1};
+    int nums3[] = {5,4,-1,7,8};
+
+    printf("%d\\n", maxSubArray(nums1, 9)); // Expected: 6
+    printf("%d\\n", maxSubArray(nums2, 1)); // Expected: 1
+    printf("%d\\n", maxSubArray(nums3, 5)); // Expected: 23
+
+    return 0;
+}`,
+
+      csharp: `using System;
+
+class Solution
+{
+    static int MaxSubArray(int[] nums)
+    {
+        // Write your solution here
+
+        return 0;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(MaxSubArray(new int[] {-2,1,-3,4,-1,2,1,-5,4})); // Expected: 6
+        Console.WriteLine(MaxSubArray(new int[] {1})); // Expected: 1
+        Console.WriteLine(MaxSubArray(new int[] {5,4,-1,7,8})); // Expected: 23
+    }
+}`,
+
+      go: `package main
+
+import "fmt"
+
+func maxSubArray(nums []int) int {
+    // Write your solution here
+
+    return 0
+}
+
+func main() {
+    fmt.Println(maxSubArray([]int{-2,1,-3,4,-1,2,1,-5,4})) // Expected: 6
+    fmt.Println(maxSubArray([]int{1})) // Expected: 1
+    fmt.Println(maxSubArray([]int{5,4,-1,7,8})) // Expected: 23
+}`,
     },
     expectedOutput: {
       javascript: "6\n1\n23",
       python: "6\n1\n23",
       java: "6\n1\n23",
+      cpp: "6\n1\n23",
+      c: "6\n1\n23",
+      csharp: "6\n1\n23",
+      go: "6\n1\n23",
     },
   },
 
@@ -356,5 +701,25 @@ export const LANGUAGE_CONFIG = {
     name: "Java",
     icon: "/java.png",
     monacoLang: "java",
+  },
+  cpp: {
+    name: "C++",
+    icon: "/cpp.png",
+    monacoLang: "cpp",
+  },
+  c: {
+    name: "C",
+    icon: "/c.png",
+    monacoLang: "c",
+  },
+  csharp: {
+    name: "C#",
+    icon: "/csharp.png",
+    monacoLang: "csharp",
+  },
+  go: {
+    name: "Go",
+    icon: "/go.png",
+    monacoLang: "go",
   },
 };
