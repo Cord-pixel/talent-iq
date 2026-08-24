@@ -27,7 +27,8 @@
     "stream-chat": "^9.23.0",
     "stream-chat-react": "^13.9.0",
     "tailwindcss": "^4.1.14",
-    "talent-iq": "file:.."
+    "talent-iq": "file:..",
+    "tldraw": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import ProblemDescription from "../components/ProblemDescription";
 import OutputPanel from "../components/OutputPanel";
-import CodeEditorPanel from "../components/CodeEditorPanel";
+import Workspace from "../components/Workspace";
 import { executeCode } from "../lib/piston";
 
 import toast from "react-hot-toast";
@@ -135,7 +135,7 @@ function ProblemPage() {
             <PanelGroup direction="vertical">
               {/* Top panel - Code editor */}
               <Panel defaultSize={70} minSize={30}>
-                <CodeEditorPanel
+                <Workspace
                   selectedLanguage={selectedLanguage}
                   code={code}
                   isRunning={isRunning}
