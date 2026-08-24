@@ -8,7 +8,7 @@ import {
   ChevronUpIcon,
 } from "lucide-react";
 import { LANGUAGE_CONFIG } from "../data/problems";
-import ComplexityScorecard from "./ComplexityScorecard"; // Make sure path matches your structure
+import ComplexityScorecard from "./ComplexityScorecard";
 
 function CodeEditorPanel({
   selectedLanguage,
@@ -21,9 +21,9 @@ function CodeEditorPanel({
   const [showAnalysis, setShowAnalysis] = useState(false);
 
   return (
-    <div className="h-full bg-base-300 flex flex-col">
+    <div className="h-full bg-base-300 flex flex-col overflow-hidden">
       {/* Top Bar Controls */}
-      <div className="flex items-center justify-between px-4 py-3 bg-base-100 border-t border-base-300">
+      <div className="flex items-center justify-between px-4 py-3 bg-base-100 border-t border-base-300 shrink-0">
         <div className="flex items-center gap-3">
           <img
             src={LANGUAGE_CONFIG[selectedLanguage].icon}
@@ -52,9 +52,9 @@ function CodeEditorPanel({
             <CpuIcon className="size-4" />
             Complexity Analysis
             {showAnalysis ? (
-              <ChevronDownIcon className="size-4" />
-            ) : (
               <ChevronUpIcon className="size-4" />
+            ) : (
+              <ChevronDownIcon className="size-4" />
             )}
           </button>
 
@@ -79,32 +79,30 @@ function CodeEditorPanel({
         </div>
       </div>
 
-      {/* Editor & Collapsible Scorecard View */}
-      <div className="flex-1 flex flex-col min-h-0">
-        <div className="flex-1">
-          <Editor
-            height={"100%"}
-            language={LANGUAGE_CONFIG[selectedLanguage].monacoLang}
-            value={code}
-            onChange={onCodeChange}
-            theme="vs-dark"
-            options={{
-              fontSize: 16,
-              lineNumbers: "on",
-              scrollBeyondLastLine: false,
-              automaticLayout: true,
-              minimap: { enabled: false },
-            }}
-          />
-        </div>
-
-        {/* Render Complexity Scorecard when toggled */}
-        {showAnalysis && (
-          <div className="p-3 bg-base-200 border-t border-base-300 max-h-60 overflow-y-auto">
-            <ComplexityScorecard code={code} language={selectedLanguage} />
-          </div>
-        )}
+      {/* Editor Container */}
+      <div className="flex-1 min-h-0 relative">
+        <Editor
+          height="100%"
+          language={LANGUAGE_CONFIG[selectedLanguage].monacoLang}
+          value={code}
+          onChange={onCodeChange}
+          theme="vs-dark"
+          options={{
+            fontSize: 16,
+            lineNumbers: "on",
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            minimap: { enabled: false },
+          }}
+        />
       </div>
+
+      {/* Render Complexity Scorecard directly at bottom when toggled */}
+      {showAnalysis && (
+        <div className="shrink-0 h-48 bg-base-200 border-t border-base-300 p-3 overflow-y-auto z-10">
+          <ComplexityScorecard code={code} language={selectedLanguage} />
+        </div>
+      )}
     </div>
   );
 }
