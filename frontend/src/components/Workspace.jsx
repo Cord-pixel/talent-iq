@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CodeEditorPanel from "./CodeEditorPanel";
-import WhiteboardPanel from "./WhiteBoardPanel";
+import WhiteboardPanel from "./WhiteboardPanel";
 import { Code2Icon, LayoutIcon } from "lucide-react";
 
 export default function Workspace({
