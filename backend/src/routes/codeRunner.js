@@ -1,10 +1,9 @@
 // routes/codeRunner.js
 import express from "express";
+import { ENV } from "../lib/env.js";
 
 const router = express.Router();
-
-const PISTON_URL =
-  "https://fantastic-space-rotary-phone-4jw56grr79jv3q6vp-3000.app.github.dev";
+const PISTON_URL = ENV.PISTON_URL;
 
 router.post("/execute", async (req, res) => {
   try {
